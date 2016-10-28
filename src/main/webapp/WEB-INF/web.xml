@@ -37,5 +37,7 @@
 			<page-encoding>UTF-8</page-encoding>
 		</jsp-property-group>
 	</jsp-config>
-
+	<welcome-file-list>  
+   		<welcome-file>/index</welcome-file> 
+  	</welcome-file-list>
 </web-app>

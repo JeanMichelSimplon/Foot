@@ -1,5 +1,5 @@
-del maWebapp.war
+del Foot.war
 rd /s /q temp
 md temp
 xcopy /E src\main\webapp\* temp
-jar cvf maWebapp.war -C temp .
+jar cvf Foot.war -C temp .
