@@ -12,27 +12,25 @@ import java.sql.Statement;
 
 import oracle.jdbc.OracleDriver;
 @MadvocAction
-public class IndexAction {
-
-    static String databaseUrl = "jdbc:oracle:thin:simplon/simplon@localhost:1521:xe";	
-    static String requeteSql = "select NAME from TEAMS where CITY = 'San Francisco'";
+public class IndexAction
+{
+    static String databaseUrl = "jdbc:oracle:thin:simplon/simplon@localhost:1521:xe"; 
+    static String requeteSql1 = "select NAME from TEAMS where CITY = 'San Francisco'";
    @Out
    String nom;
    @Action("/")
-   public String view() throws Exception {
-
+   public String view() throws Exception
+   {
         DriverManager.registerDriver(new OracleDriver());
-
         Connection connexion = DriverManager.getConnection(databaseUrl);
         Statement requete = connexion.createStatement();
-        ResultSet resultat = requete.executeQuery(requeteSql);
-        while (resultat.next()) {
+        ResultSet resultat = requete.executeQuery(requeteSql1);
+        while (resultat.next())
+        {
             nom = resultat.getString("NAME");
- //           System.Out.println(nom);
         }
-        resultat.close();
-        requete.close();
-        connexion.close();
-     	return "/index";
+        resultat.close();        
+        requete.close();        
+        return "/index";      
    }
 }   
